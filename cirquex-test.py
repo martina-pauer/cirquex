@@ -19,7 +19,7 @@ personas = [usuario]
 for agregado in range(1, 5):
     objeto = suscribir()
     objeto.usuarios = 4
-    objeto.precio = (objeto.precio / usuario.usuarios)
+    objeto.precio = (objeto.precio / objeto.usuarios)
     personas.append(objeto)
 
 from cirquex import circuito_financiero
