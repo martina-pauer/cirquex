@@ -5,7 +5,7 @@ class suscribir():
     '''
     def __init__(self):
 
-        self.precio : int = 1
+        self.precio : float = 1.0
 
         self.usuarios : int = 1
 
@@ -33,9 +33,9 @@ class circuito_financiero():
 
         self.suscriptos : list = []
 
-        self.costo : int = 1    
+        self.costo : float = 1.0    
 
-        self.ingreso : int = 0
+        self.ingreso : float = 0.0
 
     def agregar_usuario(self, sus : suscribir):
         '''
@@ -50,7 +50,7 @@ class circuito_financiero():
 
             if ((objeto.precio / 2) * objeto.usuarios) > self.costo:
                 objeto.dividir()
-                self.ingreso = self.precio - self.costo
+                self.ingreso = (objeto.precio * objeto.usuarios) - self.costo
 
     def quitar_usuario(self, sus):
         '''
@@ -61,6 +61,3 @@ class circuito_financiero():
 
         for objeto in self.suscriptos:
             objeto.usuarios = self.suscriptos.__len__()
-
-            while objeto.precio <= self.costo:
-                objeto.precio.duplicar()
