@@ -19,8 +19,7 @@ class suscribir():
 
     def dividir(self, partes : int = 2) -> int:
 
-        if (self.precio / partes) > (partes * self.precio):
-            self.precio /= partes
+        self.precio /= partes
 
         return self.precio
 
@@ -46,15 +45,17 @@ class circuito_financiero():
            numero de usuarios y precio a todas las suscripciones
            del circuito.
         '''
+
         self.suscriptos.append(sus)
 
-        for objeto in self.suscriptos:
-            objeto.usuarios = self.suscriptos.__len__() + 1
+        for agregar in self.suscriptos:
 
-            if (objeto.precio * objeto.usuarios) >= self.costo:
-                objeto.dividir()
+            agregar.usuarios = self.suscriptos.__len__() + 1
 
-            self.total = objeto.precio * objeto.usuarios
+            if (agregar.precio * agregar.usuarios) >= self.costo:
+                agregar.dividir()
+
+            self.total = agregar.precio * agregar.usuarios
 
             self.ingreso = self.total - self.costo
 
@@ -63,9 +64,13 @@ class circuito_financiero():
             Retira usuario de la suscripcion actualizando cantidad y
             precio solo si no se cumplen costos con precio de 
         '''
+
         self.suscriptos.remove(sus)
 
-        for objeto in self.suscriptos:
-            objeto.usuarios = self.suscriptos.__len__() - 1
-            self.total = objeto.precio * objeto.usuarios
+        for quitar in self.suscriptos:
+
+            quitar.usuarios = self.suscriptos.__len__() - 1
+
+            self.total = quitar.precio * quitar.usuarios
+
             self.ingreso = self.total - self.costo
