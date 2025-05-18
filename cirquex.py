@@ -7,19 +7,30 @@ class suscribir():
 
         self.precio : float = 1.0
 
+        self.costo : float = 1.0
+
         self.usuarios : int = 1
 
         self.identificar : str = ''
 
     def duplicar(self) -> int:
-
-        self.precio *= 2
+        '''
+            Duplica el precio siempre que entre
+            todos los usuarios no cubran el costo
+            para dar el servicio.
+        '''
+        if (self.precio * self.usuarios) < self.costo:
+            self.precio *= 2
 
         return self.precio
 
     def dividir(self, partes : int = 2) -> int:
-
-        self.precio /= partes
+        '''
+            Reduce precio siempre que entre todos
+            los usuarios cumplan el costo.
+        '''
+        if (self.precio * self.usuarios) >= self.costo:
+            self.precio /= partes
 
         return self.precio
 
@@ -51,6 +62,8 @@ class circuito_financiero():
         for agregar in self.suscriptos:
 
             agregar.usuarios = self.suscriptos.__len__() + 1
+
+            agregar.costo = self.costo
 
             if (agregar.precio * agregar.usuarios) >= self.costo:
                 agregar.dividir()
