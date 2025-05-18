@@ -84,6 +84,10 @@ class circuito_financiero():
 
             quitar.usuarios = self.suscriptos.__len__() - 1
 
+            quitar.costo = self.costo
+
+            quitar.duplicar()
+
             self.total = quitar.precio * quitar.usuarios
 
             self.ingreso = self.total - self.costo

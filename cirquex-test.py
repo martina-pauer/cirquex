@@ -31,13 +31,13 @@ def mostrar_circuito(circuito_mostrado : circuito_financiero):
 
         print(f'\tEl costo es de ${circuito_mostrado.costo.__str__()} y el ingreso de ${circuito_mostrado.ingreso.__str__()}\n\nTotal: {circuito_mostrado.suscriptos[0].usuarios.__str__()} usuarios.\n')
     else:
-        print(f'Hay perdidas a precio ${circuito_mostrado.suscriptos[0].precio} con {circuito_mostrado.suscriptos[0].usuarios} usuarios.')    
+        print(f'Hay perdidas a precio ${circuito_mostrado.suscriptos[0].precio} con {circuito_mostrado.suscriptos[0].usuarios} usuarios.')
 
 caminos = circuito_financiero()
 
 caminos.costo = 5
 
-segundos = 3
+segundos = 1
 
 for persona in personas:
 
