@@ -43,7 +43,7 @@ for persona in personas:
 
     caminos.agregar_usuario(persona)
 
-    print(f'\nsuscripcion\n\n\tPrecio: {persona.precio.__str__()}.\n')
+    print(f'\nsuscripcion\n\n\tPrecio: ${persona.precio.__str__()}\n')
 
     mostrar_circuito(caminos)
 
@@ -53,7 +53,7 @@ caminos.quitar_usuario(usuario)
 
 for objeto in caminos.suscriptos:
 
-    print(f'\nsuscripcion\n\n\tPrecio: {persona.precio.__str__()}\n')
+    print(f'\nsuscripcion\n\n\tPrecio: ${persona.precio.__str__()}\n')
     mostrar_circuito(caminos)
     time.sleep(segundos)
 
