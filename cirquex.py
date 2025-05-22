@@ -1,93 +1,90 @@
-class suscribir():
+class Suscription():
     '''
-        Define como será la suscripción
-        con precio y cantidad de usuarios
-    '''
-    def __init__(self):
-
-        self.precio : float = 1.0
-
-        self.costo : float = 1.0
-
-        self.usuarios : int = 1
-
-        self.identificar : str = ''
-
-    def duplicar(self) -> int:
-        '''
-            Duplica el precio siempre que entre
-            todos los usuarios no cubran el costo
-            para dar el servicio.
-        '''
-        if (self.precio * self.usuarios) < self.costo:
-            self.precio *= 2
-
-        return self.precio
-
-    def dividir(self, partes : int = 2) -> int:
-        '''
-            Reduce precio siempre que entre todos
-            los usuarios cumplan el costo.
-        '''
-        if (self.precio * self.usuarios) >= self.costo:
-            self.precio /= partes
-
-        return self.precio
-
-class circuito_financiero():
-    '''
-        Define circuito de suscripciones con
-        unos costos y unos ingresos ajustando
-        todo a un precio razonable y sostenible
+        Define the suscription data with economy and users.
     '''
     def __init__(self):
 
-        self.suscriptos : list = []
+        self.price : float = 1.0
 
-        self.costo : float = 1.0    
+        self.cost : float = 1.0
 
-        self.ingreso : float = 0.0
+        self.users : int = 1
+
+        self.ID : str = ''
+
+    def duplicate(self) -> int:
+        '''
+            Duplicate the price always that between
+            all the users can't pay the cost.
+        '''
+        if (self.price * self.users) < self.cost:
+            self.price *= 2
+
+        return self.price
+
+    def dividir(self, pieces : int = 2) -> int:
+        '''
+            Reduce price always that between all
+            the users pay the cost.
+        '''
+        if (self.price * self.users) >= self.cost:
+            self.price /= pieces
+
+        return self.price
+
+class FinancialCirq():
+    '''
+        Define suscription circuit with costs and incomes fixing 
+        all to a reasonable and maintainable price.
+    '''
+    def __init__(self):
+
+        self.suscripts : list = []
+
+        self.costs : float = 1.0    
+
+        self.incomes : float = 0.0
 
         self.total : float = 0.0
 
-    def agregar_usuario(self, sus : suscribir):
+    def add_user(self, sus : Suscription):
         '''
-           Agregar nueva suscripcion y actualiza
-           numero de usuarios y precio a todas las suscripciones
-           del circuito.
-        '''
-
-        self.suscriptos.append(sus)
-
-        for agregar in self.suscriptos:
-
-            agregar.usuarios = self.suscriptos.__len__() + 1
-
-            agregar.costo = self.costo
-
-            if (agregar.precio * agregar.usuarios) >= self.costo:
-                agregar.dividir()
-
-            self.total = agregar.precio * agregar.usuarios
-
-            self.ingreso = self.total - self.costo
-
-    def quitar_usuario(self, sus):
-        '''
-            Retira usuario de la suscripcion actualizando cantidad y
-            precio solo si no se cumplen costos con precio de 
+           Add new suscription and increase users number
+           lowing price to all circuit suscriptions.
         '''
 
-        self.suscriptos.remove(sus)
+        self.suscripts.append(sus)
+        
+        for added in self.suscripts:
 
-        for quitar in self.suscriptos:
+            added.users = self.suscripts.__len__() + 1
 
-            quitar.usuarios = self.suscriptos.__len__() - 1
+            added.cost = self.costs
 
-            quitar.costo = self.costo
+            if (added.price * added.users) >= self.costs:
+                added.divide()
 
-            quitar.duplicar()
+            self.total = added.price * added.users
 
-            self.total = quitar.precio * quitar.usuarios
+            self.incomes = self.total - self.costs
 
-            self.ingreso = self.total - self.costo
+    def quit_user(self, sus : Suscription):
+        '''
+            Retire user from the suscription list updating only if
+            the costs are covered the price and always the users
+            quantity.
+        '''
+
+        self.suscripts.remove(sus)
+
+        for quit in self.suscripts:
+
+            quit.users = self.suscripts.__len__() - 1
+
+            quit.cost = self.costs
+
+            quit.duplicate()
+
+            self.total = quit.price * quit.users
+
+            self.incomes = self.total - self.costs
