@@ -22,7 +22,7 @@ class Suscription():
 
         return self.price
 
-    def dividir(self, pieces : int = 2) -> int:
+    def divide(self, pieces : int = 2) -> int:
         '''
             Reduce price always that between all
             the users pay the cost.
