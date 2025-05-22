@@ -1,60 +1,60 @@
 #!/usr/bin/python3
 
-from cirquex import suscribir
+from cirquex import Suscription
 
 import time
-# Prueba para clase suscribir
-usuario = suscribir()
-usuario.precio = float(input('\nIngrese precio: '))
-usuario.identificar = 'familia'
-usuario.usuarios = 3
-# Muestro datos
-print(f'\nsuscripcion\n\n\tPrecio: {usuario.precio.__str__()}\n\tUsuario: {usuario.identificar.__str__()}\n\tTotal: {usuario.usuarios.__str__()} usuarios.\n')
-# Prueba para clase circuito financiero
-personas = [usuario]
+# Test for cirquex.Suscription class
+user = Suscription()
+user.price = float(input('\nType initial suscription price: '))
+user.ID = 'Family Group'
+user.users = 3
+# Show data
+print(f'\nsuscription\n\n\tPrice: {user.price.__str__()}\n\tUser: {user.ID.__str__()}\n\tTotal: {user.users.__str__()} users.\n')
 
-for agregado in range(1, 5):
+persons = [user]
 
-    suscripto = suscribir()
+for added in range(1, 5):
 
-    suscripto.usuarios = 4
+    suscript = Suscription()
 
-    suscripto.precio = (usuario.precio / suscripto.usuarios)
+    suscript.users = 4
 
-    personas.append(suscripto)
+    suscript.price = (user.price / suscript.users)
 
-from cirquex import circuito_financiero
+    persons.append(suscript)
+# Test for cirquex.FinancialCirq class
+from cirquex import FinancialCirq
 
-def mostrar_circuito(circuito_mostrado : circuito_financiero):
+def show_circuit(showed : FinancialCirq):
 
-    if circuito_mostrado.ingreso >= 0:
+    if showed.incomes >= 0:
 
-        print(f'\tEl costo es de ${circuito_mostrado.costo.__str__()} y el ingreso de ${circuito_mostrado.ingreso.__str__()}\n\nTotal: {circuito_mostrado.suscriptos[0].usuarios.__str__()} usuarios.\n')
+        print(f'\tThe cost is of ${showed.costs.__str__()} and the income is ${showed.incomes.__str__()}\n\nTotal: {showed.suscripts[0].users.__str__()} users.\n')
     else:
-        print(f'Hay perdidas a precio ${circuito_mostrado.suscriptos[0].precio} con {circuito_mostrado.suscriptos[0].usuarios} usuarios.')
+        print(f'Economic Crash when the price is ${showed.suscripts[0].price} with {showed.suscripts[0].users} users.')
 
-caminos = circuito_financiero()
+paths = FinancialCirq()
 
-caminos.costo = 5
+paths.costs = 5
 
-segundos = 1
+seconds = 1
 
-for persona in personas:
+for person in persons:
 
-    caminos.agregar_usuario(persona)
+    paths.add_user(person)
 
-    print(f'\nsuscripcion\n\n\tPrecio: ${persona.precio.__str__()}\n')
+    print(f'\nsuscription\n\n\tprice: ${person.price.__str__()}\n')
 
-    mostrar_circuito(caminos)
+    show_circuit(paths)
 
-    time.sleep(segundos)
+    time.sleep(seconds)
 
-caminos.quitar_usuario(usuario)
+paths.quit_user(user)
 
-for objeto in caminos.suscriptos:
+for suscript in paths.suscripts:
 
-    print(f'\nsuscripcion\n\n\tPrecio: ${persona.precio.__str__()}\n')
-    mostrar_circuito(caminos)
-    time.sleep(segundos)
+    print(f'\nsuscription\n\n\tprice: ${suscript.price.__str__()}\n')
+    show_circuit(paths)
+    time.sleep(seconds)
 
-mostrar_circuito(caminos)
+show_circuit(paths)
