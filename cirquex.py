@@ -110,9 +110,9 @@ class FinancialCirq():
         file.close()
         del file, cont
         # Replace text in copy later write new HTML file with output for this object
-        copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
+        copy = copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
 
-        
+
         file = open(file_name, 'x')
         file.write(copy)
         file.close()
