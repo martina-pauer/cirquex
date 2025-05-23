@@ -12,7 +12,7 @@ class Suscription():
 
         self.ID : str = ''
 
-    def duplicate(self) -> int:
+    def duplicate(self) -> float:
         '''
             Duplicate the price always that between
             all the users can't pay the cost.
@@ -22,7 +22,7 @@ class Suscription():
 
         return self.price
 
-    def divide(self, pieces : int = 2) -> int:
+    def divide(self, pieces : int = 2) -> float:
         '''
             Reduce price always that between all
             the users pay the cost.
@@ -88,3 +88,32 @@ class FinancialCirq():
             self.total = quit.price * quit.users
 
             self.incomes = self.total - self.costs
+
+    def cirq_view(self, file_name : str, author : str, css_text : str):
+        '''
+            Create a HTML file from template.html with a
+            fila name, author and CSS style for visualize
+            state of the object in circuit view planner-like.
+        '''
+        # Delete unnecesary lines on copy from template
+        file = open('template.html', 'r')
+
+        copy = ''
+
+        cont = 1
+
+        for line in file.readlines():
+            if ((cont < 4) or (cont > 20)):
+                copy += line
+            cont += 1
+        # Delete extra vars
+        file.close()
+        del file, cont
+        # Replace text in copy later write new HTML file with output for this object
+        copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
+
+        
+        file = open(file_name, 'x')
+        file.write(copy)
+        file.close()
+        del file, copy
