@@ -111,9 +111,11 @@ class FinancialCirq():
         del file, cont
         # Replace text in copy later write new HTML file with output for this object
         copy = copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
-        copy = copy.replace('#3', css_text + '.rect, .circle {border: 0.3em solid #000000; padding: 1em;} .circle {border-radius: 0.5em;}')
+        copy = copy.replace('#2', 'Financial Circuits View')
+        copy = copy.replace('#3', css_text.__str__() + '.rect, .circle {border: 0.3em solid #000000; padding: 1em;} .circle {border-radius: 0.5em;}')
         copy = copy.replace('#4', 'Financial Circuits for Suscriptions')
         copy = copy.replace('#5', f'<p class = "circle">{self.suscripts[0].price.__str__()}</p><div class = "rect">{self.total.__str__()}</div><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p>')
+        copy = copy.replace('#6', author.__str__())
 
         file = open(file_name, 'x')
         file.write(copy)
