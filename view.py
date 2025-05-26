@@ -14,4 +14,4 @@ cirq = FinancialCirq()
 for user in users:
     cirq.add_user(user)
 
-cirq.cirq_view('tests/test-11.html', 'Martina Pauer', '')    
+cirq.cirq_view('tests/test-12.html', 'Martina Pauer', '')    
