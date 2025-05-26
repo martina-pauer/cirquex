@@ -112,11 +112,16 @@ class FinancialCirq():
         # Replace text in copy later write new HTML file with output for this object
         copy = copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
         copy = copy.replace('#2', 'Financial Circuits View')
-        copy = copy.replace('#3', css_text.__str__() + '.rect, .circle {border: 0.3em solid #000000; padding: 1em;} .circle {border-radius: 0.5em;}')
+        copy = copy.replace('#3', css_text.__str__() + '.rect, .circle {display: inline-grid; border: 0.3em solid #000000; margin: 2%; padding: 1em;} .circle {border-radius: 1.4em;}')
         copy = copy.replace('#4', 'Financial Circuits for Suscriptions')
-        copy = copy.replace('#5', f'<p class = "circle">{self.suscripts[0].price.__str__()}</p><div class = "rect">{self.total.__str__()}</div><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p>')
+        
+        suscription_price = ''
+        for suscript in self.suscripts:
+            suscription_price += f'<p class = "circle">{suscript.price.__str__()}</p>'
+            
+        copy = copy.replace('#5', f'<div class = "rect">{suscription_price}</div><div class = "rect">{self.total.__str__()}</div><div class = "rect"><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p></div>')
+        del suscription_price
         copy = copy.replace('#6', author.__str__())
-
         file = open(file_name, 'x')
         file.write(copy)
         del copy
