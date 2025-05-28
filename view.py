@@ -22,6 +22,9 @@ for user in users:
     print(f'\tsuscription ${user.price.__str__()}\n')
     print(f'\tin ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
+print(f'Suscription ${users[users.__len__() - 1].price.__str__()}\n')
+print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
+
 cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '')
 
 test_number += 1
