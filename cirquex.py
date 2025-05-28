@@ -112,7 +112,7 @@ class FinancialCirq():
         # Replace text in copy later write new HTML file with output for this object
         copy = copy.replace('#1', f'<meta name = "author" content = "{author.__str__()}"/>')
         copy = copy.replace('#2', 'Financial Circuits View')
-        copy = copy.replace('#3', css_text.__str__() + 'header, footer {padding: -98%; text-align: center;} .rect, .circle {display: inline-grid; border: 0.3em solid #000000; margin: 2%; padding: 1em;} .circle {border-radius: 1.4em;}')
+        copy = copy.replace('#3', css_text.__str__() + 'header, footer {padding: -98%; text-align: center;} .rect, .circle {display: inline-grid; border: 0.3em solid #000000; margin: 2%; padding: 1em;} .circle {border-radius: 1.4em;} .circle:hover, .rect:hover {background: #dddddd; padding-top: 4%; padding: -2%; font-size: 1.2em; text-align: center; height: 4em; width: 7em;} * .circle:hover, * rect:hover {background: #000000; color: #ffffff;}')
         copy = copy.replace('#4', 'Financial Circuits for Suscriptions')
         
         suscription_price = ''
