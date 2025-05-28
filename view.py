@@ -11,7 +11,23 @@ users = [user1, user2, user3, user4]
 
 cirq = FinancialCirq()
 
+cont = open('cont.txt', 'r+')
+test_number = int(cont.readline().replace('\n', ''))
+cont.close()
+del cont
+
 for user in users:
     cirq.add_user(user)
+    print(f'Testing test-{test_number.__str__()} with {cirq.suscripts.__len__()}:\n')
+    print(f'\tsuscription ${user.price.__str__()}\n')
+    print(f'\tin ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
-cirq.cirq_view('tests/test-15.html', 'Martina Pauer', '')    
+cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '')
+
+test_number += 1
+
+save = open('cont.txt', 'w') 
+save.write(f'{test_number.__str__()}')
+save.close()
+del save, users, user1, user2, user3, user4, cirq, test_number
+
