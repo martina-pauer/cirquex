@@ -11,7 +11,7 @@ users = [user1, user2, user3, user4]
 
 cirq = FinancialCirq()
 
-cont = open('cont.txt', 'r+')
+cont = open('cont.txt', 'r')
 test_number = int(cont.readline().replace('\n', ''))
 cont.close()
 del cont
