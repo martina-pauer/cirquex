@@ -57,16 +57,16 @@ class FinancialCirq():
         
         for added in self.suscripts:
 
-            added.users = self.suscripts.__len__() + 1
+            added.users = self.suscripts.__len__()
 
             added.cost = self.costs
 
             if (added.price * added.users) >= self.costs:
-                added.divide()
+                added.divide(added.users)
 
             self.total = added.price * added.users
 
-            self.incomes = self.total - self.costs
+        self.incomes = self.total - self.costs
 
     def quit_user(self, sus : Suscription):
         '''
@@ -79,15 +79,15 @@ class FinancialCirq():
 
         for quit in self.suscripts:
 
-            quit.users = self.suscripts.__len__() - 1
+            quit.users = self.suscripts.__len__()
 
             quit.cost = self.costs
 
-            quit.duplicate()
+            quit.duplicate(quit.users)
 
             self.total = quit.price * quit.users
 
-            self.incomes = self.total - self.costs
+        self.incomes = self.total - self.costs
 
     def cirq_view(self, file_name : str, author : str, css_text : str):
         '''
