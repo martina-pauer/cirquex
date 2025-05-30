@@ -34,5 +34,5 @@ save = open('cont.txt', 'w')
 save.write(f'{test_number.__str__()}')
 save.close()
 del save, users, user1, user2, user3, user4, cirq, test_number
-os.system('rm -R __pyacache__')
+os.system('rm -R __pycache__')
 
