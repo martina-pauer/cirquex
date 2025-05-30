@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from cirquex import Suscription, FinancialCirq
+import os
 
 user1 = Suscription()
 user2 = Suscription()
@@ -33,4 +34,4 @@ save = open('cont.txt', 'w')
 save.write(f'{test_number.__str__()}')
 save.close()
 del save, users, user1, user2, user3, user4, cirq, test_number
-
+os.remove('__pycache__')
