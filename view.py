@@ -36,7 +36,7 @@ del save
 
 copy = open('index.html', 'w')
 
-for line in save.readlines():
+for line in lines:
     copy.write(line.__str__().replace(f'start = "{(test_number - 1).__str__()}', f'start = {test_number.__str__()}'))
 
 copy.close()
