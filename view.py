@@ -34,13 +34,14 @@ lines = save.readlines()
 save.close()
 del save
 
-copy = open('index.html', 'w')
-
+copy = open('tests/index.html', 'w')
+save = ''
 for line in lines:
-    copy.write(line.__str__().replace(f'start = "{(test_number - 1).__str__()}', f'start = {test_number.__str__()}'))
+    save += line.__str__().replace(f'{(test_number - 1).__str__()}', f'{test_number.__str__()}')
+copy.write(save)    
 
 copy.close()
-del copy
+del copy, save
 
 test_number += 1
 
