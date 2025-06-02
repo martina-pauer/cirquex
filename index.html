@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html lang = "en">
+        <head>
+            <meta charset = "utf-8" />
+            <meta name = "viewport" content = "width = device-width, height = device-height, initial-scale = 1" />
+            <meta name = "author" content = "Martina Pauer" />
+            <meta name = "keywords" content = "cirq,martina,pauer,Martina,Pauer,Martina Pauer,fin,financial,economy"/>
+            <title>All Cirquex Test Results</title>
+            <style type = "text/css">
+              body {
+                margin: 0;  
+                padding: 1%;
+                text-align: center;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif; 
+              }
+
+              li, footer {
+                  margin: 1em;
+                  text-align: center;
+              }    
+
+              a {
+                  border: 0.1em solid #000000;
+                  text-decoration: none; 
+              }    
+              a:hover {
+                  background: #ffffff;
+                  border: 0.15em solid #ffffff;
+                  color: #000000;
+                  text-decoration: underline;
+              }
+            </style>
+            <script type = "text/javascript">
+                function addLinkTo(id) 
+                {
+                    let element = document.getElementById(id.toString());
+                    
+                    element.innerHTML = '<li><a title = "Last Test" target = "_self" href = "https://martina-pauer.github.io/cirquex/tests/test-' + element.start.toString() + '.html">The Current Test</a></li>';
+
+                    for (let link_number = (element.start - 1); link_number >= 1; link_number--)
+                    {
+                        element.innerHTML += '<li><a title = "test-' + link_number.toString() + '" target = "_self" href = "https://martina-pauer.github.io/cirquex/tests/test-' + link_number.toString() + '.html">Test Number ' + link_number.toString() + '</a></li>';
+                    }
+                }    
+            </script>
+        </head>
+        <body onload = "javascript:addLinkTo('tests-links');">
+            <nav>
+              <ol id = "tests-links" start = 19" reversed = "true"></ol>     
+            </nav>
+            <footer>© Martina Pauer 2025</footer>
+        </body>
+    </html>
