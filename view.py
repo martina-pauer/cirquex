@@ -26,7 +26,7 @@ for user in users:
 print(f'Suscription ${users[users.__len__() - 1].price.__str__()}\n')
 print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
-cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '')
+cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: pointer;}')
 
 save = open('index.html', 'r')
 lines = save.readlines()
