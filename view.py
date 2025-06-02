@@ -28,9 +28,23 @@ print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
 cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '')
 
+save = open('index.html', 'r')
+lines = save.readlines()
+
+save.close()
+del save
+
+copy = open('index.html', 'w')
+
+for line in save.readlines():
+    copy.write(line.__str__().replace(f'start = "{(test_number - 1).__str__()}', f'start = {test_number.__str__()}'))
+
+copy.close()
+del copy
+
 test_number += 1
 
-save = open('cont.txt', 'w') 
+save = open('cont.txt', 'w')
 save.write(f'{test_number.__str__()}')
 save.close()
 del save, users, user1, user2, user3, user4, cirq, test_number
