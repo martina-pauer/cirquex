@@ -28,20 +28,20 @@ print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
 cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: pointer;}')
 
-save = open('index.html', 'r')
-lines = save.readlines()
+#save = open('index.html', 'r')
+#lines = save.readlines()
 
-save.close()
-del save
+#save.close()
+#del save
 
-copy = open('index.html', 'w')
-save = ''
-for line in lines:
-    save += line.__str__().replace(f'start = "{test_number}"', f'start = "{test_number + 1}"')
-copy.write(save)    
+#copy = open('index.html', 'w')
+#save = ''
+#for line in lines:
+#    save += line.__str__().replace(f'start = "{test_number}"', f'start = "{test_number + 1}"')
+#copy.write(save)    
 
-copy.close()
-del copy, save
+#copy.close()
+#del copy, save
 
 test_number += 1
 
