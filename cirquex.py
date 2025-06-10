@@ -12,13 +12,13 @@ class Suscription():
 
         self.ID : str = ''
 
-    def duplicate(self) -> float:
+    def duplicate(self, mult : int = 2) -> float:
         '''
             Duplicate the price always that between
             all the users can't pay the cost.
         '''
         if (self.price * self.users) < self.cost:
-            self.price *= 2
+            self.price *= mult
 
         return self.price
 
@@ -117,6 +117,8 @@ class FinancialCirq():
         
         suscription_price = ''
         for suscript in self.suscripts:
+            suscript.divide(self.suscripts.__len__())
+            suscript.duplicate(self.suscripts.__len__())
             suscription_price += f'<p class = "circle">{suscript.price.__str__()}</p>'
             
         copy = copy.replace('#5', f'<div class = "rect">{suscription_price}</div><div class = "rect">{self.total.__str__()}</div><div class = "rect"><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p></div>')
