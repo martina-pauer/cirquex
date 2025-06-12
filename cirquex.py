@@ -12,7 +12,7 @@ class Suscription():
 
         self.ID : str = ''
 
-    def duplicate(self, mult : int = 2) -> float:
+    def duplicate(self, mult : float = 2) -> float:
         '''
             Duplicate the price always that between
             all the users can't pay the cost.
@@ -22,7 +22,7 @@ class Suscription():
 
         return self.price
 
-    def divide(self, pieces : int = 2) -> float:
+    def divide(self, pieces : float = 2) -> float:
         '''
             Reduce price always that between all
             the users pay the cost.
@@ -47,6 +47,21 @@ class FinancialCirq():
 
         self.total : float = 0.0
 
+    def update(self):
+        '''
+            Keep the current and right values for all
+            properties and objects
+        '''
+        for suscript in self.suscripts:
+            suscript.users = self.suscripts.__len__()
+            suscript.cost = self.costs
+            while ((suscript.price * suscript.users) < suscript.cost):
+                suscript.duplicate(0.2)
+
+        self.total = (self.suscripts[0].price * self.suscripts[0].users)
+
+        self.incomes = self.total - self.costs        
+
     def add_user(self, sus : Suscription):
         '''
            Add new suscription and increase users number
@@ -55,39 +70,36 @@ class FinancialCirq():
 
         self.suscripts.append(sus)
         
+        self.update()
+        
         for added in self.suscripts:
+          self.update()
+          if (added.price * added.users) >= self.costs:
+              added.divide(added.users)
+          self.update()    
 
-            added.users = self.suscripts.__len__()
-
-            added.cost = self.costs
-
-            if (added.price * added.users) >= self.costs:
-                added.divide(added.users)
-
-            self.total = added.price * added.users
-
-        self.incomes = self.total - self.costs
-
+        self.update()      
+            
     def quit_user(self, sus : Suscription):
         '''
             Retire user from the suscription list updating only if
             the costs are covered the price and always the users
             quantity.
         '''
-
+        
         self.suscripts.remove(sus)
-
+        
+        self.update()
+        
         for quit in self.suscripts:
-
-            quit.users = self.suscripts.__len__()
-
-            quit.cost = self.costs
+            
+            self.update()
 
             quit.duplicate(quit.users)
 
-            self.total = quit.price * quit.users
+            self.update()
 
-        self.incomes = self.total - self.costs
+        self.update()
 
     def cirq_view(self, file_name : str, author : str, css_text : str):
         '''
@@ -117,10 +129,11 @@ class FinancialCirq():
         
         suscription_price = ''
         for suscript in self.suscripts:
+            self.update()
             suscript.divide(self.suscripts.__len__())
             suscript.duplicate(self.suscripts.__len__())
             suscription_price += f'<p class = "circle">{suscript.price.__str__()}</p>'
-            
+            self.update()    
         copy = copy.replace('#5', f'<div class = "rect">{suscription_price}</div><div class = "rect">{self.total.__str__()}</div><div class = "rect"><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p></div>')
         del suscription_price
         copy = copy.replace('#6', author.__str__())
