@@ -58,6 +58,16 @@ class FinancialCirq():
             while ((suscript.price * suscript.users) < suscript.cost):
                 suscript.duplicate(0.2)
 
+        minor = suscript.price
+        # Make this for use the same and more maintainable price
+        for prices in self.suscripts:
+
+            if (prices.price < minor) and (prices.price * prices.users):
+                minor = prices.price
+        # Later of find the minor price change all prices to same value        
+        for change in self.suscripts:
+            change.price = minor
+
         self.total = (self.suscripts[0].price * self.suscripts[0].users)
 
         self.incomes = self.total - self.costs        
