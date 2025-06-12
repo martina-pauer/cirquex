@@ -52,18 +52,13 @@ class FinancialCirq():
             Keep the current and right values for all
             properties and objects
         '''
+        minor = self.suscripts[0].price
+
         for suscript in self.suscripts:
             suscript.users = self.suscripts.__len__()
             suscript.cost = self.costs
-            while ((suscript.price * suscript.users) < suscript.cost):
-                suscript.duplicate(0.2)
-
-        minor = suscript.price
-        # Make this for use the same and more maintainable price
-        for prices in self.suscripts:
-
-            if (prices.price < minor) and (prices.price * prices.users):
-                minor = prices.price
+            if ((suscript.price < minor) and ((suscript.price * suscript.users) >= suscript.cost)):
+                minor = suscript.price
         # Later of find the minor price change all prices to same value        
         for change in self.suscripts:
             change.price = minor
