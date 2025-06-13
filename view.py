@@ -29,7 +29,7 @@ cirq.update()
 print(f'Suscription ${cirq.suscripts[cirq.suscripts.__len__() - 1].price.__str__()}\n')
 print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
-cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: grab; overflow: hidden; z-index: 0;} * > * {cursor: grab; overflow: hidden; z-index: 0;}')
+cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: grab; overflow: revert-layer; z-index: 0;} * > * {cursor: grab; overflow: revert-layer; z-index: 0;}')
 
 save = open('index.html', 'r')
 lines = save.readlines()
