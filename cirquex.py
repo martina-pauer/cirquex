@@ -59,6 +59,8 @@ class FinancialCirq():
             suscript.cost = self.costs
             if ((suscript.price < minor) and ((suscript.price * suscript.users) >= suscript.cost)):
                 minor = suscript.price
+            else:
+                minor = suscript.divide()    
         # Later of find the minor price change all prices to same value        
         for change in self.suscripts:
             change.price = minor
