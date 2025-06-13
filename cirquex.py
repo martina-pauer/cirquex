@@ -4,9 +4,9 @@ class Suscription():
     '''
     def __init__(self):
 
-        self.price : float = 1.0
+        self.price : float = 1.00
 
-        self.cost : float = 1.0
+        self.cost : float = 1.00
 
         self.users : int = 1
 
@@ -20,6 +20,8 @@ class Suscription():
         if (self.price * self.users) < self.cost:
             self.price *= mult
 
+        self.price = self.price.__round__(2)
+
         return self.price
 
     def divide(self, pieces : float = 2) -> float:
@@ -29,6 +31,8 @@ class Suscription():
         '''
         if (self.price * self.users) >= self.cost:
             self.price /= pieces
+
+        self.price = self.price.__round__(2)
 
         return self.price
 
@@ -41,31 +45,31 @@ class FinancialCirq():
 
         self.suscripts : list = []
 
-        self.costs : float = 1.0    
+        self.costs : float = 1.00    
 
-        self.incomes : float = 0.0
+        self.incomes : float = 0.00
 
-        self.total : float = 0.0
+        self.total : float = 0.00
 
     def update(self):
         '''
             Keep the current and right values for all
             properties and objects
         '''
-        minor = self.suscripts[0].price
+        minor = self.suscripts[0].price.__round__(2)
 
         for suscript in self.suscripts:
             suscript.users = self.suscripts.__len__()
-            suscript.cost = self.costs
+            suscript.cost = self.costs.__round__(2)
             if ((suscript.price < minor) and ((suscript.price * suscript.users) >= suscript.cost)):
-                minor = suscript.price
+                minor = suscript.price.__round__(2)
         # Later of find the minor price change all prices to same value        
         for change in self.suscripts:
             change.price = minor
 
-        self.total = (self.suscripts[0].price * self.suscripts[0].users)
+        self.total = (self.suscripts[0].price * self.suscripts[0].users).__round__(2)
 
-        self.incomes = self.total - self.costs        
+        self.incomes = (self.total - self.costs).__round__(2)        
 
     def add_user(self, sus : Suscription):
         '''
