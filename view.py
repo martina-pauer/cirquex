@@ -19,14 +19,17 @@ del cont
 
 for user in users:
     cirq.add_user(user)
+    cirq.update()
     print(f'Testing test-{test_number.__str__()} with {cirq.suscripts.__len__()}:\n')
-    print(f'\tsuscription ${user.price.__str__()}\n')
+    print(f'\tsuscription ${cirq.suscripts[cirq.suscripts.index(user)].price.__str__()}\n')
     print(f'\tin ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
-print(f'Suscription ${users[users.__len__() - 1].price.__str__()}\n')
+cirq.update()
+
+print(f'Suscription ${cirq.suscripts[cirq.suscripts.__len__() - 1].price.__str__()}\n')
 print(f'In ${cirq.incomes.__str__()}, out ${cirq.costs.__str__()}\n')
 
-cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: grab;} * > * {cursor: grab;}')
+cirq.cirq_view(f'tests/test-{test_number.__str__()}.html', 'Martina Pauer', '* {cursor: grab; overflow: hidden; z-index: 0;} * > * {cursor: grab; overflow: hidden; z-index: 0;}')
 
 save = open('index.html', 'r')
 lines = save.readlines()
