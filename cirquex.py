@@ -12,7 +12,7 @@ class Suscription():
 
         self.ID : str = ''
 
-    def duplicate(self, mult : float = 2) -> float:
+    def duplicate(self, mult : float = 2) -> floa
         '''
             Duplicate the price always that between
             all the users can't pay the cost.
@@ -20,7 +20,7 @@ class Suscription():
         if (self.price * self.users) < self.cost:
             self.price *= mult
 
-        self.price = self.price.__round__(2)
+        self.price = self.price.__round_(2)
 
         return self.price
 
@@ -88,7 +88,7 @@ class FinancialCirq():
           self.update()    
 
         self.update()      
-            
+         
     def quit_user(self, sus : Suscription):
         '''
             Retire user from the suscription list updating only if
@@ -109,7 +109,7 @@ class FinancialCirq():
             self.update()
 
         self.update()
-
+        
     def cirq_view(self, file_name : str, author : str, css_text : str):
         '''
             Create a HTML file from template.html with a
@@ -140,7 +140,7 @@ class FinancialCirq():
         for suscript in self.suscripts:
             self.update()
             suscript.divide(self.suscripts.__len__())
-            suscript.duplicate(self.suscripts.__len__())
+            suscript.duplicate(self.suscripts.__len__(
             suscription_price += f'<p class = "circle">{suscript.price.__str__()}</p>'
             self.update()    
         copy = copy.replace('#5', f'<div class = "rect">{suscription_price}</div><div class = "rect">{self.total.__str__()}</div><div class = "rect"><p class = "rect">{self.incomes.__str__()}</p><p class = "rect">{self.costs.__str__()}</p></div>')
